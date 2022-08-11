@@ -29,6 +29,8 @@ function StompSessionProvider(props: StompSessionProviderProps) {
   const subscriptionRequests = useRef(new Map());
 
   useEffect(() => {
+    if (!url) return
+
     const _client = new Client(stompOptions);
 
     if (!stompOptions.brokerURL && !stompOptions.webSocketFactory) {
